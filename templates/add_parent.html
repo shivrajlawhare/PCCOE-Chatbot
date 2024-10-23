@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Parent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Add Parent</h1>
+    <form action="{{ url_for('add_parent_route') }}" method="POST">
+        <select name="student_id" required>
+            <option value="">Select Student ID</option>
+            {% for student in students %}
+                <option value="{{ student[0] }}">{{ student[1] }} (ID: {{ student[0] }})</option>
+            {% endfor %}
+        </select>
+        <input type="text" name="name" placeholder="Parent Name" required>
+        <input type="text" name="contact" placeholder="Parent Contact" required>
+        <button type="submit">Add Parent</button>
+    </form>
+
+    <h2>Parents List</h2>
+    <ul>
+        {% for parent in parents %}
+        <li>{{ parent[2] }} - {{ parent[3] }} (Student ID: {{ parent[1] }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
