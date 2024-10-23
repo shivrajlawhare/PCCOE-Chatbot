@@ -113,5 +113,10 @@ def add_holiday_route():
     holidays = get_all('holidays')
     return render_template('add_holiday.html', holidays=holidays)
 
+@app.route('/base')
+def base():
+    return render_template('base.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

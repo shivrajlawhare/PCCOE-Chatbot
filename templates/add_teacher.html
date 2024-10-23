@@ -5,20 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Teacher</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Add Teacher</h1>
-    <form action="{{ url_for('add_teacher_route') }}" method="POST">
-        <input type="text" name="name" placeholder="Teacher Name" required>
-        <input type="text" name="subject" placeholder="Subject" required>
-        <button type="submit">Add Teacher</button>
-    </form>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-4">Add Teacher</h1>
+        <form action="{{ url_for('add_teacher_route') }}" method="POST" class="mb-4">
+            <input type="text" name="name" placeholder="Teacher Name" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-2 focus:outline-none focus:ring focus:border-blue-300">
+            <input type="text" name="subject" placeholder="Subject" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-4 focus:outline-none focus:ring focus:border-blue-300">
+            <button type="submit" class="bg-blue-500 text-white rounded-lg px-4 py-2 w-full hover:bg-blue-600 transition duration-200">Add Teacher</button>
+        </form>
 
-    <h2>Teachers List</h2>
-    <ul>
-        {% for teacher in teachers %}
-        <li>{{ teacher[1] }} - {{ teacher[2] }}</li>
-        {% endfor %}
-    </ul>
+        <h2 class="text-lg font-semibold mb-2">Teachers List</h2>
+        <ul class="list-disc pl-5 my-4">
+            {% for teacher in teachers %}
+                <li class="text-gray-700">{{ teacher[1] }} - {{ teacher[2] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{{ url_for('base') }}" class="bg-gray-300 text-gray-700 rounded-lg px-4 py-2 w-full text-center hover:bg-gray-400 transition duration-200 ">Back</a>
 </body>
 </html>

@@ -9,21 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Holiday</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Add Holiday</h1>
-    <form action="{{ url_for('add_holiday_route') }}" method="POST">
-        <input type="text" name="holiday_name" placeholder="Holiday Name" required>
-        <input type="date" name="date" placeholder="Date" required>
-        <button type="submit">Add Holiday</button>
-    </form>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-4">Add Holiday</h1>
+        <form action="{{ url_for('add_holiday_route') }}" method="POST" class="mb-4">
+            <input type="text" name="holiday_name" placeholder="Holiday Name" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-2 focus:outline-none focus:ring focus:border-blue-300">
+            <input type="date" name="date" placeholder="Date" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-4 focus:outline-none focus:ring focus:border-blue-300">
+            <button type="submit" class="bg-blue-500 text-white rounded-lg px-4 py-2 w-full hover:bg-blue-600 transition duration-200">Add Holiday</button>
+        </form>
 
-    <h2>Holidays List</h2>
-    <ul>
-        {% for holiday in holidays %}
-        <li>{{ holiday[1] }} - {{ holiday[2] }}</li>
-        {% endfor %}
-    </ul>
+        <h2 class="text-lg font-semibold mb-2">Holidays List</h2>
+        <ul class="list-disc pl-5">
+            {% for holiday in holidays %}
+                <li class="text-gray-700">{{ holiday[1] }} - {{ holiday[2] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
 
@@ -37,27 +42,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Parent</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Add Parent</h1>
-    <form action="{{ url_for('add_parent_route') }}" method="POST">
-        <select name="student_id" required>
-            <option value="">Select Student ID</option>
-            {% for student in students %}
-                <option value="{{ student[0] }}">{{ student[1] }} (ID: {{ student[0] }})</option>
-            {% endfor %}
-        </select>
-        <input type="text" name="name" placeholder="Parent Name" required>
-        <input type="text" name="contact" placeholder="Parent Contact" required>
-        <button type="submit">Add Parent</button>
-    </form>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-4">Add Parent</h1>
+        <form action="{{ url_for('add_parent_route') }}" method="POST" class="mb-4">
+            <select name="student_id" required 
+                    class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-2 focus:outline-none focus:ring focus:border-blue-300">
+                <option value="">Select Student ID</option>
+                {% for student in students %}
+                    <option value="{{ student[0] }}">{{ student[1] }} (ID: {{ student[0] }})</option>
+                {% endfor %}
+            </select>
+            <input type="text" name="name" placeholder="Parent Name" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-2 focus:outline-none focus:ring focus:border-blue-300">
+            <input type="text" name="contact" placeholder="Parent Contact" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-4 focus:outline-none focus:ring focus:border-blue-300">
+            <button type="submit" class="bg-blue-500 text-white rounded-lg px-4 py-2 w-full hover:bg-blue-600 transition duration-200">Add Parent</button>
+        </form>
 
-    <h2>Parents List</h2>
-    <ul>
-        {% for parent in parents %}
-        <li>{{ parent[2] }} - {{ parent[3] }} (Student ID: {{ parent[1] }})</li>
-        {% endfor %}
-    </ul>
+        <h2 class="text-lg font-semibold mb-2">Parents List</h2>
+        <ul class="list-disc pl-5">
+            {% for parent in parents %}
+                <li class="text-gray-700">{{ parent[2] }} - {{ parent[3] }} (Student ID: {{ parent[1] }})</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
 
@@ -71,21 +82,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Student</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Add Student</h1>
-    <form action="{{ url_for('add_student_route') }}" method="POST">
-        <input type="text" name="name" placeholder="Student Name" required>
-        <input type="email" name="email" placeholder="Student Email" required>
-        <button type="submit">Add Student</button>
-    </form>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-4">Add Student</h1>
+        <form action="{{ url_for('add_student_route') }}" method="POST" class="mb-4">
+            <input type="text" name="name" placeholder="Student Name" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-2 focus:outline-none focus:ring focus:border-blue-300">
+            <input type="email" name="email" placeholder="Student Email" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-4 focus:outline-none focus:ring focus:border-blue-300">
+            <button type="submit" class="bg-blue-500 text-white rounded-lg px-4 py-2 w-full hover:bg-blue-600 transition duration-200">Add Student</button>
+        </form>
 
-    <h2>Students List</h2>
-    <ul>
-        {% for student in students %}
-        <li>{{ student[1] }} - {{ student[2] }}</li>
-        {% endfor %}
-    </ul>
+        <h2 class="text-lg font-semibold mb-2">Students List</h2>
+        <ul class="list-disc pl-5">
+            {% for student in students %}
+                <li class="text-gray-700">{{ student[1] }} - {{ student[2] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
 
@@ -99,21 +115,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Teacher</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Add Teacher</h1>
-    <form action="{{ url_for('add_teacher_route') }}" method="POST">
-        <input type="text" name="name" placeholder="Teacher Name" required>
-        <input type="text" name="subject" placeholder="Subject" required>
-        <button type="submit">Add Teacher</button>
-    </form>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-4">Add Teacher</h1>
+        <form action="{{ url_for('add_teacher_route') }}" method="POST" class="mb-4">
+            <input type="text" name="name" placeholder="Teacher Name" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-2 focus:outline-none focus:ring focus:border-blue-300">
+            <input type="text" name="subject" placeholder="Subject" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-4 focus:outline-none focus:ring focus:border-blue-300">
+            <button type="submit" class="bg-blue-500 text-white rounded-lg px-4 py-2 w-full hover:bg-blue-600 transition duration-200">Add Teacher</button>
+        </form>
 
-    <h2>Teachers List</h2>
-    <ul>
-        {% for teacher in teachers %}
-        <li>{{ teacher[1] }} - {{ teacher[2] }}</li>
-        {% endfor %}
-    </ul>
+        <h2 class="text-lg font-semibold mb-2">Teachers List</h2>
+        <ul class="list-disc pl-5">
+            {% for teacher in teachers %}
+                <li class="text-gray-700">{{ teacher[1] }} - {{ teacher[2] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
 
@@ -127,45 +148,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>College Enquiry Chatbot</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100">
     <!-- Header -->
-    <header>
-        <h1>College Enquiry Chatbot System</h1>
+    <header class="bg-white shadow">
+        <div class="container mx-auto p-4">
+            <h1 class="text-2xl font-bold text-center">College Enquiry Chatbot System</h1>
+        </div>
     </header>
 
     <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="{{ url_for('add_student_route') }}">Add Student</a></li>
-            <li><a href="{{ url_for('add_parent_route') }}">Add Parent</a></li>
-            <li><a href="{{ url_for('add_teacher_route') }}">Add Teacher</a></li>
-            <li><a href="{{ url_for('add_holiday_route') }}">Add Holiday</a></li>
-            <li><a href="{{ url_for('logout') }}">Logout</a></li>
-        </ul>
+    <nav class="bg-white shadow">
+        <div class="container mx-auto p-4">
+            <ul class="flex justify-center space-x-4">
+                <li><a href="{{ url_for('add_student_route') }}" class="text-blue-500 hover:underline">Add Student</a></li>
+                <li><a href="{{ url_for('add_parent_route') }}" class="text-blue-500 hover:underline">Add Parent</a></li>
+                <li><a href="{{ url_for('add_teacher_route') }}" class="text-blue-500 hover:underline">Add Teacher</a></li>
+                <li><a href="{{ url_for('add_holiday_route') }}" class="text-blue-500 hover:underline">Add Holiday</a></li>
+                <li><a href="/chat" class="text-blue-500 hover:underline">Chatbot</a></li>
+                <li><a href="/login" class="text-blue-500 hover:underline">Admin Login</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Flash Messages -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <ul>
-                {% for category, message in messages %}
-                <li class="{{ category }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-
-    <!-- Main Content Area -->
-    <div class="container">
-        {% block content %}
-        <!-- Child templates will inject their content here -->
-        {% endblock %}
-    </div>
+    <!-- Main Content -->
+    <main class="container mx-auto p-4">
+        {% block content %}{% endblock %}
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <!-- <p>&copy; 2024 College Enquiry Chatbot System</p> -->
+    <footer class="bg-white shadow mt-4">
+        <div class="container mx-auto p-4 text-center">
+            <p class="text-gray-600">© 2024 College Enquiry Chatbot System. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
@@ -180,46 +196,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>Welcome to the College Enquiry Chatbot</h1>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-lg">
+        <h1 class="text-2xl font-bold text-center mb-4">Welcome to the College Enquiry Chatbot</h1>
 
         <!-- Chat Section -->
-        <form action="/" method="POST">
-            <label for="query">Enter your query:</label>
-            <input type="text" name="query" id="query" placeholder="Type 'students', 'teachers', or 'holidays'">
-            <button type="submit">Ask</button>
+        <form action="/" method="POST" class="flex mb-4">
+            <input type="text" name="query" id="query" placeholder="Type 'students', 'teachers', or 'holidays'" 
+                   class="flex-grow border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring focus:border-blue-300">
+            <button type="submit" class="bg-blue-500 text-white rounded-r-lg px-4 py-2 hover:bg-blue-600 transition duration-200">Ask</button>
         </form>
 
         <!-- Display the results or message -->
-        {% if result %}
-        <h3>Results for "{{ query }}":</h3>
-        <table border="1">
-            <thead>
-                <tr>
-                    {% for header in table_headers %}
-                    <th>{{ header }}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in result %}
-                <tr>
-                    {% for item in row %}
-                    <td>{{ item }}</td>
-                    {% endfor %}
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% elif message %}
-        <p>{{ message }}</p>
-        {% endif %}
+        <div class="mt-6">
+            {% if result %}
+                <h3 class="text-lg font-semibold">Results for "{{ query }}":</h3>
+                <table class="min-w-full border-collapse border border-gray-300 mt-2">
+                    <thead>
+                        <tr class="bg-gray-200">
+                            {% for header in table_headers %}
+                                <th class="border border-gray-300 px-4 py-2">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in result %}
+                            <tr class="hover:bg-gray-100">
+                                {% for item in row %}
+                                    <td class="border border-gray-300 px-4 py-2">{{ item }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% elif message %}
+                <p class="text-red-500">{{ message }}</p>
+            {% endif %}
+        </div>
 
         <!-- Admin Login Button -->
-        <div class="admin-login">
-            <a href="/login">Admin Login</a>
+        <div class="text-center mt-6">
+            <a href="/login" class="text-blue-500 hover:underline">Admin Login</a>
         </div>
     </div>
 </body>
@@ -235,22 +254,214 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Admin Login</h1>
-    <form action="{{ url_for('login') }}" method="POST">
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <ul>
-                {% for category, message in messages %}
-                <li class="{{ category }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-4">Admin Login</h1>
+        <form action="{{ url_for('login') }}" method="POST" class="mb-4">
+            <input type="text" name="username" placeholder="Username" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-2 focus:outline-none focus:ring focus:border-blue-300">
+            <input type="password" name="password" placeholder="Password" required 
+                   class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-4 focus:outline-none focus:ring focus:border-blue-300">
+            <button type="submit" class="bg-blue-500 text-white rounded-lg px-4 py-2 w-full hover:bg-blue-600 transition duration-200">Login</button>
+        </form>
+    </div>
 </body>
 </html>
+
+
+==== app.py ====
+
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from models import add_student, add_parent, add_teacher, add_holiday, get_all, get_all_students, get_admin_by_username, init_db
+from config import Config
+from flask_mysqldb import MySQL
+
+app = Flask(__name__, static_folder='static')
+app.config.from_object(Config)
+init_db(app)
+
+app.secret_key = Config.SECRET_KEY
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        query = request.form.get('query').lower()
+        if query == 'students':
+            students = get_all('students')
+            return render_template('chat.html', query=query, result=students, table_headers=['ID', 'Name', 'Email'])
+        elif query == 'teachers':
+            teachers = get_all('teachers')
+            return render_template('chat.html', query=query, result=teachers, table_headers=['ID', 'Name', 'Subject'])
+        elif query == 'holidays':
+            holidays = get_all('holidays')
+            return render_template('chat.html', query=query, result=holidays, table_headers=['ID', 'Holiday Name', 'Date'])
+        else:
+            message = "I can't understand the query. Please try 'students', 'teachers', or 'holidays'."
+            return render_template('chat.html', query=query, message=message)
+    return render_template('chat.html')
+
+# Admin Login Route
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        admin = get_admin_by_username(username)
+        if admin and admin[2] == password:  
+            session['admin'] = username
+            return render_template('base.html')
+        else:
+            flash('Wrong credentials. Please try again.', 'danger')
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('admin', None)
+    return redirect(url_for('login'))
+
+@app.route('/add_student', methods=['GET', 'POST'])
+def add_student_route():
+    if 'admin' not in session:
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':
+        data = {
+            'name': request.form['name'],
+            'email': request.form['email']
+        }
+        add_student(data)
+        return redirect(url_for('add_student_route'))
+    
+    students = get_all('students')
+    return render_template('add_student.html', students=students)
+
+@app.route('/add_parent', methods=['GET', 'POST'])
+def add_parent_route():
+    if 'admin' not in session:
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':
+        data = {
+            'student_id': request.form['student_id'],
+            'name': request.form['name'],
+            'contact': request.form['contact']
+        }
+        add_parent(data)
+        return redirect(url_for('add_parent_route'))
+    
+    parents = get_all('parents')
+    students = get_all_students()  
+    return render_template('add_parent.html', parents=parents, students=students)
+
+@app.route('/add_teacher', methods=['GET', 'POST'])
+def add_teacher_route():
+    if 'admin' not in session:
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':
+        data = {
+            'name': request.form['name'],
+            'subject': request.form['subject']
+        }
+        add_teacher(data)
+        return redirect(url_for('add_teacher_route'))
+    
+    teachers = get_all('teachers')
+    return render_template('add_teacher.html', teachers=teachers)
+
+@app.route('/add_holiday', methods=['GET', 'POST'])
+def add_holiday_route():
+    if 'admin' not in session:
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':
+        data = {
+            'holiday_name': request.form['holiday_name'],
+            'date': request.form['date']
+        }
+        add_holiday(data)
+        return redirect(url_for('add_holiday_route'))
+    
+    holidays = get_all('holidays')
+    return render_template('add_holiday.html', holidays=holidays)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+==== config.py ====
+
+import os
+
+class Config:
+    SECRET_KEY = os.urandom(24)
+    MYSQL_HOST = 'localhost'
+    MYSQL_USER = 'root'
+    MYSQL_PASSWORD = 'S1234567h'
+    MYSQL_DB = 'college_db'
+
+
+==== models.py ====
+
+from flask_mysqldb import MySQL
+
+mysql = MySQL()
+
+def init_db(app):
+    mysql.init_app(app)
+
+def add_student(data):
+    cur = mysql.connection.cursor()
+    cur.execute("INSERT INTO students (name, email) VALUES (%s, %s)", (data['name'], data['email']))
+    mysql.connection.commit()
+    cur.close()
+
+def add_parent(data):
+    cur = mysql.connection.cursor()
+    cur.execute("INSERT INTO parents (student_id, name, contact) VALUES (%s, %s, %s)",
+                (data['student_id'], data['name'], data['contact']))
+    mysql.connection.commit()
+    cur.close()
+
+def add_teacher(data):
+    cur = mysql.connection.cursor()
+    cur.execute("INSERT INTO teachers (name, subject) VALUES (%s, %s)", (data['name'], data['subject']))
+    mysql.connection.commit()
+    cur.close()
+
+def add_holiday(data):
+    cur = mysql.connection.cursor()
+    cur.execute("INSERT INTO holidays (holiday_name, date) VALUES (%s, %s)", (data['holiday_name'], data['date']))
+    mysql.connection.commit()
+    cur.close()
+
+def get_all(table):
+    cur = mysql.connection.cursor()
+    cur.execute(f"SELECT * FROM {table}")
+    data = cur.fetchall()
+    cur.close()
+    return data
+
+def get_all_students():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT id, name FROM students")  # Assuming 'id' is the primary key for students
+    data = cur.fetchall()
+    cur.close()
+    return data
+
+def get_admin_by_username(username):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM admin WHERE username = %s", (username,))
+    admin = cur.fetchone()
+    cur.close()
+    return admin
+
+def get_all(table):
+    cur = mysql.connection.cursor()
+    cur.execute(f"SELECT * FROM {table}")
+    data = cur.fetchall()
+    cur.close()
+    return data
